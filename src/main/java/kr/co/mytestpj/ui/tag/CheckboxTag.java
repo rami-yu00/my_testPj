@@ -3,14 +3,9 @@ package kr.co.mytestpj.ui.tag;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
-public class ComboTag extends AbstractFieldTag {
-    private String codebase;
-    private String value;
+public class CheckboxTag extends AbstractFieldTag {
+    private String value = "N";
     private String label;
-
-    public void setCodebase(String codebase) {
-        this.codebase = codebase;
-    }
 
     public void setValue(String value) {
         this.value = value;
@@ -23,13 +18,10 @@ public class ComboTag extends AbstractFieldTag {
     @Override
     public int doStartTag() throws JspException {
         StringBuilder sb = new StringBuilder();
-        sb.append("<span class=\"cbui-combo\"");
+        sb.append("<span class=\"cbui-checkbox\"");
         appendCommonAttributes(sb);
-        if (codebase != null) {
-            sb.append(" data-codebase=\"").append(codebase).append("\"");
-        }
         sb.append(">");
-        sb.append("<input type=\"hidden\" class=\"cbui-combo-value\"");
+        sb.append("<input type=\"hidden\" class=\"cbui-checkbox-value\"");
         if (field != null) {
             sb.append(" name=\"").append(field).append("\"");
         }
@@ -37,15 +29,14 @@ public class ComboTag extends AbstractFieldTag {
             sb.append(" value=\"").append(value).append("\"");
         }
         sb.append(" />");
-        sb.append("<span class=\"cbui-combo-label\">");
+        sb.append("<label class=\"cbui-checkbox-label\">");
+        sb.append("<input type=\"checkbox\" class=\"cbui-checkbox-control\" /> ");
         if (label != null) {
             sb.append(label);
         } else {
-            sb.append("선택");
+            sb.append("체크");
         }
-        sb.append("</span>");
-        sb.append("<button type=\"button\" class=\"cbui-combo-toggle\">▼</button>");
-        sb.append("<ul class=\"cbui-combo-menu\"></ul>");
+        sb.append("</label>");
         sb.append("</span>");
 
         try {

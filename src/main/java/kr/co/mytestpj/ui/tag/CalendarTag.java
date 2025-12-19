@@ -3,33 +3,33 @@ package kr.co.mytestpj.ui.tag;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
-public class ComboTag extends AbstractFieldTag {
-    private String codebase;
+public class CalendarTag extends AbstractFieldTag {
+    private String format;
     private String value;
-    private String label;
+    private String placeholder;
 
-    public void setCodebase(String codebase) {
-        this.codebase = codebase;
+    public void setFormat(String format) {
+        this.format = format;
     }
 
     public void setValue(String value) {
         this.value = value;
     }
 
-    public void setLabel(String label) {
-        this.label = label;
+    public void setPlaceholder(String placeholder) {
+        this.placeholder = placeholder;
     }
 
     @Override
     public int doStartTag() throws JspException {
         StringBuilder sb = new StringBuilder();
-        sb.append("<span class=\"cbui-combo\"");
+        sb.append("<span class=\"cbui-calendar\"");
         appendCommonAttributes(sb);
-        if (codebase != null) {
-            sb.append(" data-codebase=\"").append(codebase).append("\"");
+        if (format != null) {
+            sb.append(" data-format=\"").append(format).append("\"");
         }
         sb.append(">");
-        sb.append("<input type=\"hidden\" class=\"cbui-combo-value\"");
+        sb.append("<input type=\"hidden\" class=\"cbui-calendar-value\"");
         if (field != null) {
             sb.append(" name=\"").append(field).append("\"");
         }
@@ -37,15 +37,14 @@ public class ComboTag extends AbstractFieldTag {
             sb.append(" value=\"").append(value).append("\"");
         }
         sb.append(" />");
-        sb.append("<span class=\"cbui-combo-label\">");
-        if (label != null) {
-            sb.append(label);
-        } else {
-            sb.append("선택");
+        sb.append("<input type=\"text\" class=\"cbui-calendar-display\"");
+        if (value != null) {
+            sb.append(" value=\"").append(value).append("\"");
         }
-        sb.append("</span>");
-        sb.append("<button type=\"button\" class=\"cbui-combo-toggle\">▼</button>");
-        sb.append("<ul class=\"cbui-combo-menu\"></ul>");
+        if (placeholder != null) {
+            sb.append(" placeholder=\"").append(placeholder).append("\"");
+        }
+        sb.append(" />");
         sb.append("</span>");
 
         try {

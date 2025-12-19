@@ -1,0 +1,98 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.cbui-section {
+  border: 1px solid #ccc;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.cbui-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.cbui-label {
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.cbui-input-control,
+.cbui-textarea-control,
+.cbui-calendar-display {
+  padding: 6px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.cbui-combo,
+.cbui-checkbox,
+.cbui-radio,
+.cbui-calendar,
+.cbui-input,
+.cbui-textarea {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cbui-combo {
+  position: relative;
+}
+
+.cbui-combo-menu {
+  display: none;
+  position: absolute;
+  top: 28px;
+  left: 0;
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  background: #fff;
+  border: 1px solid #ccc;
+  width: 140px;
+  z-index: 10;
+}
+
+.cbui-combo-menu li {
+  padding: 4px 6px;
+  cursor: pointer;
+}
+
+.cbui-combo-menu li:hover {
+  background: #efefef;
+}
+
+.cbui-button {
+  padding: 8px 14px;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cbui-button + .cbui-button {
+  margin-left: 8px;
+}
+
+.cbui-realgrid-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cbui-realgrid-table th,
+.cbui-realgrid-table td {
+  border: 1px solid #ccc;
+  padding: 6px;
+  text-align: left;
+}
+
+.cbui-realgrid-table tbody tr:hover {
+  background: #f5f5f5;
+  cursor: pointer;
+}
